@@ -1,5 +1,15 @@
 ﻿import sqlite3
 
+def delete_inv(date):
+    conn = sqlite3.connect('inv.db')
+    
+    c = conn.cursor()
+    
+    mysql = 'DELETE FROM INV WHERE DATE = "{}"'.format(date)
+    
+    c.execute(mysql)
+    
+    conn.commit()
 
 def create_inv():
     conn = sqlite3.connect('inv.db')
@@ -38,5 +48,6 @@ def create_daily():
     conn.commit()
 
 if __name__ == '__main__':
-    create_inv()
-    create_daily()
+    #create_inv()
+    #create_daily()
+    delete_inv('20171218')
