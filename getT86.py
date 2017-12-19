@@ -32,10 +32,10 @@ def retrieve_inv_data(today):
     
     for data in jdata['data']:
         code =  data[0]
-        fi =  int(data[4].replace(',', ''))
-        it =  int(data[7].replace(',', ''))
-        dl =  int(data[8].replace(',', ''))
-        total = int(data[15].replace(',', ''))
+        fi =  int(data[4].replace(',', '')) + int(data[7].replace(',', ''))
+        it =  int(data[10].replace(',', ''))
+        dl =  int(data[11].replace(',', ''))
+        total = int(data[18].replace(',', ''))
         
         c.execute("INSERT INTO INV (EXCHANGE, DATE, CODE, FI, IT, DL, TOTAL) VALUES(?, ?, ?, ?, ?, ?, ?)", (exchange, date, code, fi, it, dl, total, ))
 
