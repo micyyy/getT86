@@ -2,7 +2,8 @@
 import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
-#import matplotlib.font_manager as fm
+
+plt.rcParams['font.sans-serif']=['SimHei']
 
 def main(code, count):    
     conn = sqlite3.connect('inv.db')
@@ -19,9 +20,9 @@ def main(code, count):
     if len(df) < count:
         count = len(df)
     
-    my_title = '{} 近{}天三大法人買賣超'.format(code, count)
+    my_title = u'<{}> 近 {} 天三大法人買賣超'.format(code, count)
     df.plot(kind = 'bar', title = my_title)
-
+    
     plt.show()
 
 if __name__ == '__main__':
